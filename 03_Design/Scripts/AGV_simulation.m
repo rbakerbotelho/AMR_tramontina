@@ -11,8 +11,8 @@ addpath('.\models\');
 % T3 = readtable('.\stateFlow\current\routes\route3.csv');
 % T4 = readtable('.\stateFlow\current\routes\route4.csv');
 % T5 = readtable('.\stateFlow\current\routes\route5.csv');
-T6 = readtable('.\stateFlow\current\routes\route6.csv'); % 'T' atrás tintas
-T7 = readtable('.\stateFlow\current\routes\route7.csv'); % Linha Reta 239
+T6 = readtable(which('route7.csv')); % 'T' atrás tintas
+T7 = readtable(which('route7.csv')); % Linha Reta 239
 
 %% Define os parâmetros de simulação
 num_of_wps = size(T6, 1);
