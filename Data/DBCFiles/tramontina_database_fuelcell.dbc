@@ -1,0 +1,108 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+
+BO_ 385 FuelCell_RX_status1: 8 Vector__XXX
+ SG_ FC_SystemState : 10|3@0+ (1,0) [0|7] "" Vector__XXX
+ SG_ ESD_Flag : 11|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ NSD_Flag : 13|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LoadReduction : 14|1@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ ErrorNumber : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ FuelCellCurrent : 39|16@0+ (0.01,0) [0|65535] "A" Vector__XXX
+ SG_ FuelCellVoltage : 55|16@0+ (0.01,0) [0|65535] "V" Vector__XXX
+
+BO_ 641 FuelCell_RX_status2: 8 Vector__XXX
+ SG_ WorkingHour : 7|16@0+ (1,0) [0|65535] "h" Vector__XXX
+ SG_ WorkingMinute : 23|16@0+ (1,0) [0|65535] "min" Vector__XXX
+ SG_ TemperatureStackIn : 39|16@0+ (0.01,0) [0|65535] "celsius" Vector__XXX
+ SG_ TemperatureStackOut : 55|16@0+ (0.01,0) [0|65535] "celsius" Vector__XXX
+
+BO_ 897 FuelCell_RX_status3: 8 Vector__XXX
+ SG_ ConverterVoltageOut : 7|16@0+ (0.1,0) [0|65535] "V" Vector__XXX
+ SG_ ConverterCurrentOut : 23|16@0+ (0.01,0) [0|65535] "A" Vector__XXX
+ SG_ TemperatureModuleIn : 39|16@0+ (0.01,0) [0|65535] "celsius" Vector__XXX
+ SG_ TemperatureModuleOut : 55|16@0+ (0.01,0) [0|65535] "celsius" Vector__XXX
+
+BO_ 1153 FuelCell_RX_status4: 8 Vector__XXX
+ SG_ DCDC_temperature_1 : 7|16@0+ (0.01,0) [0|65535] "celsius" Vector__XXX
+ SG_ DCDC_temperature_2 : 23|16@0+ (0.01,0) [0|65535] "celsius" Vector__XXX
+ SG_ DCDC_temperature_3 : 39|16@0+ (0.01,0) [0|65535] "celsius" Vector__XXX
+ SG_ SetCurrentConverter : 55|16@0+ (0.01,0) [0|65535] "A" Vector__XXX
+
+BO_ 513 FuelCell_TX: 3 Vector__XXX
+ SG_ CurrentSetPoint : 7|16@0+ (0.01,0) [0|150] "A" Vector__XXX
+ SG_ Fixed_bit : 19|1@1+ (1,0) [1|1] "" Vector__XXX
+ SG_ PowerRequestSide : 18|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PowerRequestMode : 17|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FC_ON : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+
+
+
+CM_ BO_ 385 "ProcessDataFromFC";
+CM_ SG_ 385 FC_SystemState "FC_SystemState";
+CM_ SG_ 385 ESD_Flag "ESD_Flag";
+CM_ SG_ 385 NSD_Flag "NSD_Flag";
+CM_ SG_ 385 LoadReduction "LoadReduction";
+CM_ SG_ 385 ErrorNumber "ErrorNumberKTS";
+CM_ SG_ 385 FuelCellCurrent "FuelCellCurrent";
+CM_ SG_ 385 FuelCellVoltage "FuelCellVoltage";
+CM_ BO_ 641 "ProcessDataFromFC";
+CM_ SG_ 641 WorkingHour "WorkingHour";
+CM_ SG_ 641 WorkingMinute "WorkingMinute";
+CM_ SG_ 641 TemperatureStackIn "TemperatureStackIn";
+CM_ SG_ 641 TemperatureStackOut "TemperatureStackOut";
+CM_ BO_ 897 "ProcessDataFromFC";
+CM_ SG_ 897 ConverterVoltageOut "ConverterVoltageOut";
+CM_ SG_ 897 ConverterCurrentOut "ConverterCurrentOut";
+CM_ SG_ 897 TemperatureModuleIn "TemperatureModuleIn";
+CM_ SG_ 897 TemperatureModuleOut "TemperatureModuleOut";
+CM_ BO_ 1153 "ProcessDataFromFC";
+CM_ SG_ 1153 DCDC_temperature_1 "DCDC_temperature_1";
+CM_ SG_ 1153 DCDC_temperature_2 "DCDC_temperature_2";
+CM_ SG_ 1153 DCDC_temperature_3 "DCDC_temperature_3";
+CM_ SG_ 1153 SetCurrentConverter "SetCurrentConverter";
+CM_ SG_ 513 CurrentSetPoint "sets current in 1 A steps";
+CM_ SG_ 513 Fixed_bit "cte=1";
+CM_ SG_ 513 PowerRequestSide "0- Set Point on the FC side 
+1- Set Point on side of DC/DC converter
+";
+CM_ SG_ 513 PowerRequestMode "Change Mode only in state STANDBY.
+Not allowed during OPRATING 
+0 - Current Request 1- Power Request";
+CM_ SG_ 513 FC_ON "0- no power shall be generated 
+1- power shall be generated";
+

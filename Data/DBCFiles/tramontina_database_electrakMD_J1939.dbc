@@ -1,0 +1,87 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ afm__MotionFlag_ : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ acm__FactoryUse : 29|35@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2582584091 actuator_feedback_message: 8 Vector__XXX
+ SG_ afm__MeasuredPosition : 0|14@1+ (0.1,0) [0|100] "mm" Vector__XXX
+ SG_ afm__MeasuredCurrent : 14|9@1+ (0.1,0) [0|20] "A" Vector__XXX
+ SG_ afm__RunningSpeed : 23|5@1+ (5,0) [0|100] "%" Vector__XXX
+ SG_ afm__VoltageError : 28|2@1+ (1,0) [0|2] "" Vector__XXX
+ SG_ afm__TemperatureError : 30|2@1+ (1,0) [0|2] "" Vector__XXX
+ SG_ afm__MotionFlag : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ afm__OverloadFlag : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ afm__BackdriveFlag : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ afm__ParameterFlag : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ afm__SaturationFlag : 36|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ afm__FatalErrorFlag : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ afm__FactoryUse : 38|26@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2565806875 actuator_control_message: 8 Vector__XXX
+ SG_ acm__PositionCommand : 0|14@1+ (0.1,0) [0|100] "mm" Vector__XXX
+ SG_ acm__CurrentLimit : 14|9@1+ (0.1,0) [0|4] "A" Vector__XXX
+ SG_ acm__SpeedCommand : 23|5@1+ (5,0) [20|100] "%" Vector__XXX
+ SG_ acm__MotionEnable : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+
+
+
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "NmStationAddress" INT 0 255;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "NmStationAddress" 254;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "ProtocolType" "J1939";
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_ "VFrameFormat" BO_ 2582584091 3;
+BA_ "VFrameFormat" BO_ 2565806875 3;
+VAL_ 2582584091 afm__VoltageError 0 "normal_operation" 1 "undervoltage_flag" 2 "overvoltage_flag" ;
+VAL_ 2582584091 afm__TemperatureError 0 "normal_operation" 1 "undertemperature_flag" 2 "overtemperature_flag" ;
+VAL_ 2582584091 afm__MotionFlag 0 "stop" 1 "run" ;
+VAL_ 2582584091 afm__OverloadFlag 0 "normal_operation" 1 "overload_condition" ;
+VAL_ 2582584091 afm__BackdriveFlag 0 "normal_operation" 1 "uncommanded_movement" ;
+VAL_ 2582584091 afm__ParameterFlag 0 "normal_operation" 1 "outside_allowed_parameter" ;
+VAL_ 2582584091 afm__SaturationFlag 0 "normal_operation" 1 "10%_capability" ;
+VAL_ 2582584091 afm__FatalErrorFlag 0 "normal_operation" 1 "failure" ;
+VAL_ 2582584091 afm__FactoryUse 255 "normal_operation" ;
+VAL_ 2565806875 acm__MotionEnable 1 "ON" 0 "OFF" ;
+

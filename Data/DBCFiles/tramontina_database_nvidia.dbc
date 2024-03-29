@@ -1,0 +1,110 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+
+BS_:
+
+BU_:
+
+
+BO_ 368 joystick_axes: 8 Vector__XXX
+ SG_ joystick_throttle : 7|32@0- (1,0) [-1|1] "" Vector__XXX
+ SG_ joystick_direction : 39|32@0- (1,0) [-1|1] "" Vector__XXX
+
+BO_ 369 joystick_buttons: 1 Vector__XXX
+ SG_ button_5 : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ button_6 : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 372 outdoor_scanner_Yaw_Status: 6 Vector__XXX
+ SG_ LocalizationStatus : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MapMatchingStatus : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Yaw : 0|32@1- (1,0) [-180000|180000] "mdeg" Vector__XXX
+
+BO_ 374 outdoor_scanner_API: 2 Vector__XXX
+ SG_ MapID : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LocSetMap : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LocLoadMap : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LocClearMap : 10|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LocInitAtPose : 11|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 370 outdoor_scanner_PosX: 8 Vector__XXX
+ SG_ X : 0|64@1- (1,0) [-9.2233720369e+018|9.2233720369e+018] "mm" Vector__XXX
+
+BO_ 371 outdoor_scanner_PosY: 8 Vector__XXX
+ SG_ Y : 0|64@1- (1,0) [-9.2233720369e+018|9.2233720369e+018] "" Vector__XXX
+
+BO_ 373 outdoor_scanner_Odometer_Vel: 8 Vector__XXX
+ SG_ velX : 0|16@1- (1,0) [-32768|32768] "mm/s" Vector__XXX
+ SG_ velY : 16|16@1- (1,0) [-32768|32768] "mm/s" Vector__XXX
+ SG_ velAng : 32|32@1- (1,0) [-2147483648|-2147483648] "mdeg/s" Vector__XXX
+
+BO_ 375 ros_acknowledge_message: 1 Vector__XXX
+ SG_ ack_id_received : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ack_NewMapName_received : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ack_NewPose_received : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ack_LocSetMap : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ack_LocInitAtPose : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 288 mobotic_feedback_pos: 8 Vector__XXX
+ SG_ enconder_feedback : 32|32@1- (1,0) [0|0] "" Vector__XXX
+ SG_ position_feedback : 0|32@1- (0.087890625,30) [-75|75] "" Vector__XXX
+
+BO_ 289 mobotic_error_flag: 8 Vector__XXX
+ SG_ steering_unit_error : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 290 AMR_vehicle_speed: 8 Vector__XXX
+ SG_ speed_m_per_min : 0|32@1- (1,0) [-90|90] "m/min" Vector__XXX
+ SG_ speed_m_per_s : 32|32@1- (1,0) [-1.5|1.5] "m/s" Vector__XXX
+
+BO_ 343 AMR_OperationMode: 8 Vector__XXX
+ SG_ OperationMode : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 344 AMR_OperationMode_feedback: 8 Vector__XXX
+ SG_ OperationMode_auto : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OperationMode_idle : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OperationMode_manual : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+
+
+CM_ SG_ 374 LocSetMap "Load and activate a map";
+CM_ SG_ 374 LocLoadMap "Loads a map to the RAM of the localization controller if not already loaded. It does not set the map for localization";
+CM_ SG_ 374 LocClearMap "Removes the cached maps from the RAM of the lcoalization controller";
+CM_ SG_ 374 LocInitAtPose "Sets the initial pose and automatically optimizes the pose to match the measured scan data in the loaded map";
+CM_ SG_ 344 OperationMode_idle " ";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+038 3.4e+038;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BusType" "CAN";
+VAL_ 372 LocalizationStatus 10 "OK" 20 "Warning" 30 "Not Localized" 40 "System Error" 100 "Config Mode" ;
+VAL_ 372 MapMatchingStatus 0 "None" 30 "Low" 60 "Medium" 90 "Good" ;
+VAL_ 343 OperationMode 2 "ManualMode" 4 "AutomaticMode" 0 "idle" ;
+SIG_VALTYPE_ 368 joystick_throttle : 1;
+SIG_VALTYPE_ 368 joystick_direction : 1;
+SIG_VALTYPE_ 370 X : 2;
+SIG_VALTYPE_ 371 Y : 2;
+SIG_VALTYPE_ 373 velAng : 1;
+SIG_VALTYPE_ 290 speed_m_per_min : 1;
+SIG_VALTYPE_ 290 speed_m_per_s : 1;

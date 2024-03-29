@@ -1,0 +1,164 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+
+BO_ 352 digital_1_8: 4 Vector__XXX
+ SG_ digital_1_act : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_1_hgh : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_1_low : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_2_act : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_2_hgh : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_2_low : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_3_act : 8|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_3_hgh : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_3_low : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_4_act : 12|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_4_hgh : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_4_low : 15|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_5_act : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_5_hgh : 18|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_5_low : 19|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_6_act : 20|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_6_hgh : 22|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_6_low : 23|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_7_act : 24|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_7_hgh : 26|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_7_low : 27|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_8_act : 28|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_8_hgh : 30|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ digital_8_low : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 353 analog_1_4: 8 Vector__XXX
+ SG_ analog_1 : 0|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_2 : 16|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_3 : 32|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_4 : 48|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+
+BO_ 354 analog_5_8: 8 Vector__XXX
+ SG_ analog_5 : 0|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_6 : 16|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_7 : 32|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_8 : 48|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+
+BO_ 4 analog_1_8_fd: 16 Vector__XXX
+ SG_ analog_1_fd : 0|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_2_fd : 16|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_3_fd : 32|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_4_fd : 48|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_5_fd : 64|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_6_fd : 80|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_7_fd : 96|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+ SG_ analog_8_fd : 112|16@1+ (0.625,0) [0|10000] "mV" Vector__XXX
+
+BO_ 5 pulse_8bit_1_8: 8 Vector__XXX
+ SG_ pulse_8bit_1 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ pulse_8bit_2 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ pulse_8bit_3 : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ pulse_8bit_4 : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ pulse_8bit_5 : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ pulse_8bit_6 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ pulse_8bit_7 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ pulse_8bit_8 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 6 pulse_16bit_1_4: 8 Vector__XXX
+ SG_ pulse_16bit_1 : 0|16@1+ (1,0) [0|65534] "" Vector__XXX
+ SG_ pulse_16bit_2 : 16|16@1+ (1,0) [0|65534] "" Vector__XXX
+ SG_ pulse_16bit_3 : 32|16@1+ (1,0) [0|65534] "" Vector__XXX
+ SG_ pulse_16bit_4 : 48|16@1+ (1,0) [0|65534] "" Vector__XXX
+
+BO_ 7 pulse_16bit_5_8: 8 Vector__XXX
+ SG_ pulse_16bit_5 : 0|16@1+ (1,0) [0|65534] "" Vector__XXX
+ SG_ pulse_16bit_6 : 16|16@1+ (1,0) [0|65534] "" Vector__XXX
+ SG_ pulse_16bit_7 : 32|16@1+ (1,0) [0|65534] "" Vector__XXX
+ SG_ pulse_16bit_8 : 48|16@1+ (1,0) [0|65534] "" Vector__XXX
+
+BO_ 8 pulse_32bit_1_2: 8 Vector__XXX
+ SG_ pulse_32bit_1 : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_2 : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 9 pulse_32bit_3_4: 8 Vector__XXX
+ SG_ pulse_32bit_3 : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_4 : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 10 pulse_32bit_5_6: 8 Vector__XXX
+ SG_ pulse_32bit_5 : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_6 : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 11 pulse_32bit_7_8: 8 Vector__XXX
+ SG_ pulse_32bit_7 : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_8 : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 12 pulse_32bit_1_8_fd: 32 Vector__XXX
+ SG_ pulse_32bit_1_fd : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_2_fd : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_3_fd : 64|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_4_fd : 96|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_5_fd : 128|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_6_fd : 160|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_7_fd : 192|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ pulse_32bit_8_fd : 224|32@1+ (1,0) [0|0] "" Vector__XXX
+
+
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "CANFD_BRS" ENUM  "0","1";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "CANFD_BRS" "0";
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN FD";
+BA_ "VFrameFormat" BO_ 352 0;
+BA_ "VFrameFormat" BO_ 353 0;
+BA_ "VFrameFormat" BO_ 354 0;
+BA_ "VFrameFormat" BO_ 4 14;
+BA_ "VFrameFormat" BO_ 5 0;
+BA_ "VFrameFormat" BO_ 6 0;
+BA_ "VFrameFormat" BO_ 7 0;
+BA_ "VFrameFormat" BO_ 8 0;
+BA_ "VFrameFormat" BO_ 9 0;
+BA_ "VFrameFormat" BO_ 10 0;
+BA_ "VFrameFormat" BO_ 11 0;
+BA_ "VFrameFormat" BO_ 12 14;
+VAL_ 352 digital_1_act 0 "Unknown" 1 "Low" 2 "High" ;
+VAL_ 352 digital_2_act 0 "Unknown" 1 "Low" 2 "High" ;
+VAL_ 352 digital_3_act 0 "Unknown" 1 "Low" 2 "High" ;
+VAL_ 352 digital_4_act 0 "Unknown" 1 "Low" 2 "High" ;
+VAL_ 352 digital_5_act 0 "Unknown" 1 "Low" 2 "High" ;
+VAL_ 352 digital_6_act 0 "Unknown" 1 "Low" 2 "High" ;
+VAL_ 352 digital_7_act 0 "Unknown" 1 "Low" 2 "High" ;
+VAL_ 352 digital_8_act 0 "Unknown" 1 "Low" 2 "High" ;
+

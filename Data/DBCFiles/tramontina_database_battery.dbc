@@ -1,0 +1,368 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ BatteryReserve : 40|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 512 VEK_In_Node_0_PDO_1: 8 Vector__XXX
+ SG_ VEK_V_Key : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_V_CBPresence : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_VSI1_PulsanteRipristino : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_VSI2_IgnoraCbMaxPower : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_VSI3_CaricaRapida : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_VSI4_CaricaBiberonaggio : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_V_CustomInput01 : 56|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_V_CustomInput02 : 57|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VEK_V_CustomInput03 : 58|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 400 battery_Node0_TXPDO1: 8 Vector__XXX
+ SG_ Ibatt_ist : 7|32@0- (0.001,0) [-2147483.648|2147483.647] "A" Vector__XXX
+ SG_ Vbatt_ist : 39|16@0+ (0.1,0) [0|6553.5] "V" Vector__XXX
+
+BO_ 401 battery_Node1_TXPDO1: 8 Vector__XXX
+ SG_ Vmax_cell : 7|16@0+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ Addr_Vmax_cell : 23|8@0+ (1,1) [1|256] "" Vector__XXX
+ SG_ Vaverage_cells : 31|16@0+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ Vmin_cell : 47|16@0+ (0.001,0) [0|65.535] "V" Vector__XXX
+ SG_ Addr_Vmin_cell : 56|8@1+ (1,1) [1|256] "" Vector__XXX
+
+BO_ 656 battery_Node0_TXPDO2: 8 Vector__XXX
+ SG_ BBS_OperationMode : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ SOC : 8|8@1+ (1,0) [0|255] "%" Vector__XXX
+ SG_ PowerReductionRatio : 16|8@1+ (0.39215686274,0) [0|99.999999999] "%" Vector__XXX
+ SG_ RecoveryReductionRatio : 24|8@1+ (0.39215686274,0) [0|99.999999999] "%" Vector__XXX
+ SG_ CUT : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ STOP : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ALARM : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ WARNING : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ FLAG : 40|5@1+ (1,0) [0|31] "" Vector__XXX
+ SG_ ChargerPresent : 45|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ChargeCompleted : 46|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BulkChargeCompleted : 47|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMS_Counter : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 657 battery_Node1_TXPDO2: 8 Vector__XXX
+ SG_ Tmax_Cell : 0|8@1+ (1,-40) [-40|215] "celsius" Vector__XXX
+ SG_ Address_Tmax_Cell : 8|8@1+ (1,1) [1|256] "" Vector__XXX
+ SG_ Taverage_Cells : 16|8@1+ (1,-40) [-40|215] "celsius" Vector__XXX
+ SG_ Tmin_Cell : 24|8@1+ (1,-40) [-40|215] "celsius" Vector__XXX
+ SG_ Address_Tmin_Cell : 32|8@1+ (1,1) [1|256] "" Vector__XXX
+
+BO_ 913 battery_Node1_TXPDO3: 8 Vector__XXX
+ SG_ Ah_TOT : 7|32@0- (1,0) [-2147483648|2147483647] "Ah" Vector__XXX
+ SG_ NumberOfCycles : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ BulkChargesRatio : 48|8@1+ (0.392,0) [0|99.96] "%" Vector__XXX
+ SG_ CompleteChargesRatio : 56|8@1+ (0.392,0) [0|99.96] "%" Vector__XXX
+
+BO_ 915 battery_Node3_TXPDO3: 8 Vector__XXX
+ SG_ ChargeTimeRemaining : 7|16@0+ (1,0) [0|65535] "min" Vector__XXX
+ SG_ CurrentDate_Year : 16|8@1+ (1,2000) [2000|2255] "" Vector__XXX
+ SG_ CurrentDate_Month : 24|8@1+ (1,0) [1|12] "" Vector__XXX
+ SG_ CurrentDate_Day : 32|8@1+ (1,0) [1|31] "" Vector__XXX
+ SG_ CurrentDate_Hour : 40|8@1+ (1,0) [0|23] "h" Vector__XXX
+ SG_ CurrentDate_Minute : 48|8@1+ (1,0) [0|59] "min" Vector__XXX
+
+BO_ 912 battery_Node0_TXPDO3: 8 Vector__XXX
+ SG_ ErrorCode1 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ErrorValue1 : 8|8@1+ (1,1) [0|255] "" Vector__XXX
+ SG_ ErrorCode2 : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ErrorValue2 : 24|8@1+ (1,1) [0|255] "" Vector__XXX
+ SG_ ErrorCode3 : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ErrorValue3 : 40|8@1+ (1,1) [0|255] "" Vector__XXX
+ SG_ ErrorCode4 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ErrorValue4 : 56|8@1+ (1,1) [0|255] "" Vector__XXX
+
+BO_ 402 battery_Node2_TXPDO1: 8 Vector__XXX
+ SG_ STOP_Indicator : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ STOP_Signal : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ STOP_WARNING : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Fault_Indicator : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PowerReduction_Indicator : 36|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PowerReduction_Signal : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BBS_Active : 38|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AuxiliaryUncontrolledCharger : 39|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Fans_Active_Temp_BBS : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Fans_Active_Temp_Cells : 25|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ STOP_CHARGE_EMERGENCY : 27|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DischargePermitted : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ ChargePermitted : 29|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ STOP_DISCHARGE_EMERGENCY : 30|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ STOP_EMERGENCY : 31|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Heaters_Active : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Operation_Allowed : 17|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AuxGeneratorEnable : 18|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BatteryChargerContactor : 19|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Charge_Completed : 20|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ STOP_CHARGE : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 403 battery_Node3_TXPDO1: 8 Vector__XXX
+ SG_ MUX_Message_Format M : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BBS_Serial_Number m1 : 23|48@0+ (1,0) [0|4294967295] "" Vector__XXX
+ SG_ System_Serial_Number m2 : 23|48@0+ (1,0) [0|4294967295] "" Vector__XXX
+ SG_ RemoteControlOptions m3 : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1169 battery_Node1_TXPDO4: 8 Vector__XXX
+ SG_ Ah_TOT_charged : 7|32@0- (1,0) [-2147483648|2147483647] "Ah" Vector__XXX
+ SG_ Ah_In_battery : 39|32@0- (1,0) [-2147483648|2147483647] "Ah" Vector__XXX
+
+BO_ 659 battery_Node3_TXPDO2: 8 Vector__XXX
+ SG_ HW_ID : 7|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ SW_version : 23|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ SW_release_number : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ SW_build_number : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Customer_ID : 39|16@0+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 1168 battery_Node0_TXPDO4: 8 Vector__XXX
+ SG_ TotalEnergySupplied : 7|32@0- (0.01,0) [-2147483648|2147483647] "kWh" Vector__XXX
+ SG_ TotalEnergyCharged : 39|32@0- (0.01,0) [-2147483648|2147483647] "kWh" Vector__XXX
+
+BO_ 658 battery_Node2_TXPDO2: 8 Vector__XXX
+ SG_ I_setpoint : 7|32@0- (1000,0) [-2147483648|2147483648] "A" Vector__XXX
+
+BO_ 1170 battery_Node2_TXPDO4: 8 Vector__XXX
+ SG_ AvailableAh : 7|32@0- (0.1,0) [-2147483648|2147483648] "Ah" Vector__XXX
+
+BO_ 770 VEK_In_Node_2_PDO_2: 8 Vector__XXX
+ SG_ VEK_Limitazione_PWM_CB1 : 0|8@1+ (1,0) [0|255] "%" Vector__XXX
+ SG_ VEK_Limitazione_PWM_CB2 : 8|8@1+ (1,0) [0|255] "%" Vector__XXX
+ SG_ VEK_Limite_Ibatt_di_carica : 23|16@0+ (0.1,0) [0|6553.5] "A" Vector__XXX
+ SG_ VEK_Limite_pot_input_CB : 39|16@0+ (0.1,0) [0|6553.5] "W" Vector__XXX
+
+
+
+CM_ BO_ 512 "Vehicle Kaitek -> BBS";
+CM_ BO_ 400 "Voltage_Current
+";
+CM_ SG_ 400 Ibatt_ist "
+Battery Instant Current
+";
+CM_ SG_ 400 Vbatt_ist "
+Battery Voltage
+";
+CM_ BO_ 401 "CellsVoltage";
+CM_ SG_ 401 Vmax_cell "
+Higher voltage cell
+";
+CM_ SG_ 401 Addr_Vmax_cell "Higher voltage cell address";
+CM_ SG_ 401 Vaverage_cells "
+Average cell voltage
+";
+CM_ SG_ 401 Vmin_cell "
+Lower voltage cell
+";
+CM_ SG_ 401 Addr_Vmin_cell "
+Lower voltage cell address
+";
+CM_ BO_ 656 "SystemStatus
+";
+CM_ SG_ 656 BBS_OperationMode "
+BBS Operating Mode
+";
+CM_ SG_ 656 SOC "
+Battery State of Charge (%)
+";
+CM_ SG_ 656 PowerReductionRatio "
+Power reduction ratio (%). Suggested maximum power that may be sunk from the battery
+";
+CM_ SG_ 656 RecoveryReductionRatio "
+Recovery reduction ratio (%). Power that may be sourced to the battery. If value is 255, no power can be sourced
+";
+CM_ SG_ 656 CUT "
+Power reduction Flag
+";
+CM_ SG_ 656 STOP "
+STOP signal. Mandatory to stop any current sunk from the battery. Resumes all possible causes.
+";
+CM_ SG_ 656 ALARM "
+STOP signal pre-alarm. Optional
+";
+CM_ SG_ 656 WARNING "
+STOP signal active during recovery. Indicates hthat STOP conditions are still present,even if temporarily masked.
+";
+CM_ SG_ 656 FLAG "individual bits are not described";
+CM_ SG_ 656 ChargerPresent "
+Indicates that the charger is connected (based on the inputs of the BBS)
+";
+CM_ SG_ 656 ChargeCompleted "
+Indicates that the charge phase (including balancing) is completed.
+";
+CM_ SG_ 656 BulkChargeCompleted "
+Indicates that the bulk charge is completed. Balancing phase is not complete, but SOC is aligned.
+";
+CM_ SG_ 656 BMS_Counter "
+The free running value indicates that the BMS unit and the communication path are active
+";
+CM_ BO_ 657 "Cells Temperature";
+CM_ SG_ 657 Tmax_Cell "
+Higher temperature cell
+";
+CM_ SG_ 657 Address_Tmax_Cell "
+Higher temperature cell address
+";
+CM_ SG_ 657 Taverage_Cells "
+Higher temperature cell
+";
+CM_ SG_ 657 Tmin_Cell "
+Lower temperature cell
+";
+CM_ SG_ 657 Address_Tmin_Cell "
+Lower temperature cell address
+";
+CM_ BO_ 913 "Battery Life Information";
+CM_ SG_ 913 Ah_TOT "
+Total Ah supplied in battery life
+";
+CM_ SG_ 913 NumberOfCycles "
+Number of charge/discharge cycles
+";
+CM_ SG_ 913 BulkChargesRatio "
+Bulk charges (with SOC correction) ratio over total charges
+";
+CM_ SG_ 913 CompleteChargesRatio "
+Complete charges (with SOC alignment) ratio over total charges
+";
+CM_ BO_ 915 "Time Info";
+CM_ SG_ 915 ChargeTimeRemaining "
+Estimated time remaining to end of charge
+";
+CM_ BO_ 912 "Temporary Errors";
+CM_ BO_ 402 "System Outputs";
+CM_ SG_ 402 STOP_Indicator "
+STOP signal, with power-on check cycle
+";
+CM_ SG_ 402 STOP_Signal "
+STOP signal (without check cycle)
+";
+CM_ SG_ 402 STOP_WARNING "
+Warning: STOP signal pre-alarm
+";
+CM_ SG_ 402 Fault_Indicator "
+Fault indicator. May be a non-blocking failure.
+";
+CM_ SG_ 402 PowerReduction_Indicator "
+Power reduction indicator, with initial check
+";
+CM_ SG_ 402 PowerReduction_Signal "
+Power reduction indicator
+";
+CM_ SG_ 402 BBS_Active "
+Signal asserted when BBS is operating (not idle)
+";
+CM_ SG_ 402 AuxiliaryUncontrolledCharger "
+Auxiliary uncontrolled charger enable
+";
+CM_ SG_ 402 Fans_Active_Temp_BBS "
+BBS cooling control (active if BBS temperature is high)
+";
+CM_ SG_ 402 Fans_Active_Temp_Cells "
+Cells cooling control (active if temperature of the battery is high)
+";
+CM_ SG_ 402 STOP_CHARGE_EMERGENCY "
+EMERGENCY STOP CHARGE: Activated if overcharge is detected even after STOP CHARGE signal is asserted
+";
+CM_ SG_ 402 STOP_DISCHARGE_EMERGENCY "
+EMERGENCY STOP DISCHARGE: Activated if overdicharge is detected even after the STOP signal is asserted
+";
+CM_ SG_ 402 STOP_EMERGENCY "
+EMERGENCY STOP: active if overcharge or overdischarge is detected
+";
+CM_ SG_ 402 Heaters_Active "
+Cells heating control (depends on settings)
+";
+CM_ SG_ 402 STOP_CHARGE "
+STOP CHARGE signal: no current can be sourced to the battery
+";
+CM_ BO_ 403 "System Info";
+CM_ BO_ 1169 "Absorbed Ah";
+CM_ SG_ 1169 Ah_TOT_charged "
+Total Ah charged in battery
+";
+CM_ SG_ 1169 Ah_In_battery "Current SOC in Ah";
+CM_ BO_ 659 "System Info 2
+";
+CM_ SG_ 659 HW_ID "
+Hardware version
+";
+CM_ SG_ 659 SW_version "
+Major firmware version
+";
+CM_ SG_ 659 SW_release_number "
+Minor firmware version
+";
+CM_ SG_ 659 SW_build_number "
+Firmware variant
+";
+CM_ SG_ 659 Customer_ID "
+Custom firmware version
+";
+CM_ BO_ 1168 "Total Energy";
+CM_ SG_ 1168 TotalEnergySupplied "
+Total energy supplied by the battery
+";
+CM_ SG_ 1168 TotalEnergyCharged "Total energy charged in the battery";
+CM_ BO_ 658 "Current setpoint
+";
+CM_ SG_ 658 I_setpoint "
+Charge current setpoint
+";
+CM_ BO_ 1170 "Available Ah";
+CM_ SG_ 1170 AvailableAh "
+Ah available
+";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+38 3.4e+38;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BusType" "CAN";
+BA_ "GenMsgCycleTime" BO_ 512 100;
+BA_ "GenSigStartValue" SG_ 401 Addr_Vmax_cell 1;
+BA_ "GenSigStartValue" SG_ 401 Addr_Vmin_cell 1;
+BA_ "GenSigStartValue" SG_ 657 Address_Tmax_Cell 1;
+BA_ "GenSigStartValue" SG_ 657 Address_Tmin_Cell 1;
+BA_ "GenSigStartValue" SG_ 915 CurrentDate_Year 2000;
+BA_ "GenSigStartValue" SG_ 915 CurrentDate_Month 1;
+BA_ "GenSigStartValue" SG_ 915 CurrentDate_Day 1;
+BA_ "GenMsgCycleTime" BO_ 770 530;
+BA_ "GenSigStartValue" SG_ 770 VEK_Limitazione_PWM_CB1 255;
+BA_ "GenSigStartValue" SG_ 770 VEK_Limitazione_PWM_CB2 255;
+BA_ "GenSigStartValue" SG_ 770 VEK_Limite_pot_input_CB 65535;
+VAL_ 656 BBS_OperationMode 0 "Idle" 16 "Scarica" 32 "Carica" ;
+VAL_ 403 MUX_Message_Format 1 "Multiplexer 1" 2 "Multiplexer 2" 3 "Multiplexer 3" ;
+
