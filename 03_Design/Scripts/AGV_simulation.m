@@ -15,8 +15,7 @@ T6 = readtable(which('route7.csv')); % 'T' atrás tintas
 T7 = readtable(which('route7.csv')); % Linha Reta 239
 
 %% Define os parâmetros de simulação
-num_of_wps = size(T6, 1);
-tstep = .01;
+num_of_wps = size(T7, 1);
 tfinal = inf;
 L = 2;
 
