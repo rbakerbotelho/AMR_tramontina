@@ -1,0 +1,96 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+
+BS_:
+
+BU_:
+
+
+BO_ 424 curtis_feedback_message_left: 6 Vector__XXX
+ SG_ motor_rpm_left : 16|16@1- (1,0) [-32768|32767] "rpm" Vector__XXX
+ SG_ motor_temperature_left : 32|16@1- (0.1,0) [-100|300] "celsius" Vector__XXX
+ SG_ motor_current_left : 0|16@1+ (0.1,0) [0|1000] "A" Vector__XXX
+
+BO_ 425 curtis_feedback_message_right: 6 Vector__XXX
+ SG_ motor_rpm_right : 16|16@1- (1,0) [-32768|32767] "rpm" Vector__XXX
+ SG_ motor_temperature_right : 32|16@1- (0.1,0) [-100|300] "celsius" Vector__XXX
+ SG_ motor_current_right : 0|16@1+ (0.1,0) [0|1000] "A" Vector__XXX
+
+BO_ 552 curtis_input_message_left: 8 Vector__XXX
+ SG_ rpm_set_left : 0|16@1- (0.0915527344,0) [-3000|3000] "rpm" Vector__XXX
+
+BO_ 553 curtis_input_message_right: 8 Vector__XXX
+ SG_ rpm_set_right : 0|16@1- (0.0915527,0) [-3000|3000] "rpm" Vector__XXX
+
+BO_ 0 curtis_input_operational: 8 Vector__XXX
+ SG_ pre_operational : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 936 curtis_encoder_left: 8 Vector__XXX
+ SG_ rotor_position_left : 0|32@1- (0.0002441406,0) [-524288|524287] "" Vector__XXX
+ SG_ switch1 : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch6 : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch7 : 38|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch8 : 39|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch9 : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch12 : 43|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch13 : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch15 : 46|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch18 : 49|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch10 : 41|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 937 curtis_encoder_right: 4 Vector__XXX
+ SG_ rotor_position_rigth : 0|32@1- (0.000244140625,0) [-524288|524287] "" Vector__XXX
+
+BO_ 1832 controller_status_left: 1 Vector__XXX
+ SG_ controller_mode_left : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1833 controller_status_right: 1 Vector__XXX
+ SG_ controller_mode_right : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 681 curtis_torque_right: 8 Vector__XXX
+ SG_ motor_torque_rigth : 0|32@1- (1,0) [-500|500] "Nm" Vector__XXX
+ SG_ motor_power_rigth : 32|32@1- (0.1,0) [-100|100] "kW" Vector__XXX
+
+BO_ 680 curtis_torque_left: 8 Vector__XXX
+ SG_ motor_torque_left : 0|32@1- (1,0) [-500|500] "Nm" Vector__XXX
+ SG_ motor_power_left : 32|32@1- (0.1,0) [-100|100] "kW" Vector__XXX
+
+
+CM_ BO_ 424 "curtis_feedback_message_left
+";
+CM_ SG_ 424 motor_temperature_left "";
+CM_ SG_ 936 switch12 "atuador_em_posicao";
+CM_ SG_ 936 switch10 "mesa_em_posicao";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+038 3.4e+038;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BusType" "CAN";
+SIG_VALTYPE_ 681 motor_torque_rigth : 1;
+SIG_VALTYPE_ 681 motor_power_rigth : 1;
+SIG_VALTYPE_ 680 motor_torque_left : 1;
+SIG_VALTYPE_ 680 motor_power_left : 1;
