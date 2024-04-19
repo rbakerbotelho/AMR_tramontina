@@ -90,8 +90,16 @@ BO_ 680 curtis_torque_RCUfront: 8 Vector__XXX
 CM_ BO_ 424 "RollerConveyorUnit
 ";
 CM_ SG_ 424 motor_temperature_front "";
-CM_ SG_ 936 switch12 "atuador_em_posicao";
-CM_ SG_ 936 switch10 "mesa_em_posicao";
+CM_ SG_ 936 switch1 "CurtainLeftTop";
+CM_ SG_ 936 switch6 "CurtainRightBotton";
+CM_ SG_ 936 switch7 "RCU_LateralFrontRight";
+CM_ SG_ 936 switch8 "RCU_LateralRearRight";
+CM_ SG_ 936 switch9 "RCU_LateralFrontLeft";
+CM_ SG_ 936 switch12 "";
+CM_ SG_ 936 switch15 "CurtainLeftBotton";
+CM_ SG_ 936 switch18 "RCU_LateralRearLeft";
+CM_ SG_ 936 switch10 "";
+CM_ BO_ 937 "";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
 BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+38 3.4e+38;

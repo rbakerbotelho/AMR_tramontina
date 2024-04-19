@@ -1,4 +1,4 @@
-VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+VERSION ""
 
 
 NS_ : 
@@ -22,6 +22,14 @@ NS_ :
 	SIG_GROUP_
 	SIG_VALTYPE_
 	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
 
 BS_:
 
@@ -78,14 +86,23 @@ BO_ 678 curtis_torque_left: 8 Vector__XXX
  SG_ motor_power_left : 32|32@1- (0.1,0) [-100|100] "kW" Vector__XXX
 
 
+
 CM_ BO_ 422 "curtis_feedback_message_left
 ";
 CM_ SG_ 422 motor_temperature_left "";
+CM_ SG_ 934 switch1 "FlapFrontLeft_Uper";
+CM_ SG_ 934 switch6 "FlapFrontRight_Down";
+CM_ SG_ 934 switch7 "FlapRearRight_Uper";
+CM_ SG_ 934 switch8 "FlapRearLeft_Uper";
+CM_ SG_ 934 switch9 "FlapRearLeft_Down";
 CM_ SG_ 934 switch12 "atuador_em_posicao";
+CM_ SG_ 934 switch13 "FlapFrontRight_Uper";
+CM_ SG_ 934 switch15 "FlapFrontLeft_Down";
+CM_ SG_ 934 switch18 "FlapRearRight_Down";
 CM_ SG_ 934 switch10 "mesa_em_posicao";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
-BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+038 3.4e+038;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+38 3.4e+38;
 BA_DEF_DEF_  "BusType" "CAN";
 BA_DEF_DEF_  "GenMsgCycleTime" 0;
 BA_DEF_DEF_  "GenSigStartValue" 0;
@@ -94,3 +111,4 @@ SIG_VALTYPE_ 679 motor_torque_rigth : 1;
 SIG_VALTYPE_ 679 motor_power_rigth : 1;
 SIG_VALTYPE_ 678 motor_torque_left : 1;
 SIG_VALTYPE_ 678 motor_power_left : 1;
+
