@@ -16,9 +16,9 @@ addpath(genpath(fileparts( which(filename) )));
 % T4 = readtable('.\stateFlow\current\routes\route4.csv');
 T5 = readtable(which('route5.csv'));
 T6 = readtable(which('route6.csv')); % 'T' atrás tintas
-T7 = readtable(which('route7.csv')); % Linha Reta 239
+T7 = readtable(which('route7.csv')); % Linha Reta 239T8 = readtable(which('route_teste_aplicacao_fundo.csv'));
 
-T=T6;
+T=T8;
 
 %% Define os parâmetros de simulação
 num_of_wps = size(T, 1);
