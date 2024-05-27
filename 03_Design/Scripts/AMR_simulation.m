@@ -19,7 +19,7 @@ T=T_ind0;
 num_of_wps = size(T, 1);
 tstep = 50e-3;
 tfinal = 500;
-L = 2;
+L = 0.5;
 
 %% SIMUL param
 % Abre o modelo
@@ -36,12 +36,13 @@ S = sim(model);
 AMR_t = S.logsout{1}.Values.Time;
 AMR_x = S.logsout{3}.Values.Data(:);
 AMR_y = S.logsout{4}.Values .Data(:);
-AMR_heading = S.logsout{7}.Values.Data(:);
-AMR_speed = S.logsout{6}.Values.Data(:);
+AMR_heading = S.logsout{8}.Values.Data(:);
+AMR_speed = S.logsout{7}.Values.Data(:);
 AMR_moving = S.logsout{15}.Values.Data(:);
-AMR_state = S.logsout{14}.Values.Data(:);
-route_x = S.logsout{21}.Values.Data(:);
-route_y = S.logsout{22}.Values.Data(:);
+AMR_state = S.logsout{2}.Values.Data(:);
+route_x = S.logsout{23}.Values.Data(:);
+route_y = S.logsout{24}.Values.Data(:);
+
 
 
 p=plot(route_x, route_y,'-o');

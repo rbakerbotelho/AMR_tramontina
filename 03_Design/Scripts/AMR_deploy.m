@@ -18,4 +18,4 @@ T=T_ind0;
 %% Define os parâmetros de DEPLOY
 num_of_wps = size(T, 1);
 tfinal = inf;
-L = 0.25;
+L = 0.5;
