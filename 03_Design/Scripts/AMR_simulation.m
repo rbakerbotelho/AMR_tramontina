@@ -40,8 +40,8 @@ AMR_heading = S.logsout{8}.Values.Data(:);
 AMR_speed = S.logsout{7}.Values.Data(:);
 AMR_moving = S.logsout{15}.Values.Data(:);
 AMR_state = S.logsout{2}.Values.Data(:);
-route_x = S.logsout{23}.Values.Data(:);
-route_y = S.logsout{24}.Values.Data(:);
+route_x = S.logsout{24}.Values.Data(:);
+route_y = S.logsout{25}.Values.Data(:);
 
 
 
