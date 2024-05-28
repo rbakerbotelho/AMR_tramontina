@@ -20,6 +20,7 @@ num_of_wps = size(T, 1);
 tstep = 50e-3;
 tfinal = 500;
 L = 0.5;
+vehicle_wheelbase = 2.367; %[m]
 
 %% SIMUL param
 % Abre o modelo
@@ -40,8 +41,8 @@ AMR_heading = S.logsout{8}.Values.Data(:);
 AMR_speed = S.logsout{7}.Values.Data(:);
 AMR_moving = S.logsout{15}.Values.Data(:);
 AMR_state = S.logsout{2}.Values.Data(:);
-route_x = S.logsout{24}.Values.Data(:);
-route_y = S.logsout{25}.Values.Data(:);
+route_x = S.logsout{27}.Values.Data(:);
+route_y = S.logsout{28}.Values.Data(:);
 
 
 
@@ -54,29 +55,6 @@ grid minor
 
 
 
-
-
-model='C:\Users\ander\Desktop\AGV_stateFlow22a.slx';
-S = sim(model);
-
-% %% Separa as variáveis observadas
-AGV_t = S.logsout{1}.Values.Time;
-AGV_lat = S.logsout{1}.Values.Data(:);
-AGV_lng = S.logsout{2}.Values .Data(:);
-AGV_speed = S.logsout{3}.Values.Data(:);
-AGV_heading = S.logsout{4}.Values.Data(:);
-AGV_moving = S.logsout{11}.Values.Data(:);
-AGV_state = S.logsout{12}.Values.Data(:);
-AGV_X = S.logsout{14}.Values.Data(:);
-AGV_Y = S.logsout{15}.Values.Data(:);
-
-
-p=plot(AGV_X, AGV_Y,'-o');
-p.MarkerSize = 5;
-hold on
-plot(AGV_lat, AGV_lng)
-legend('target','executed')
-grid minor 
 
 
 % % Geoplot Figura total
