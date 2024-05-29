@@ -18,8 +18,8 @@ T=T_ind0;
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
 tstep = 50e-3;
-tfinal = 500;
-L = 0.5;
+tfinal = 700;
+L = 0.75;
 vehicle_wheelbase = 2.367; %[m]
 
 %% SIMUL param
@@ -37,15 +37,17 @@ S = sim(model);
 AMR_t = S.logsout{1}.Values.Time;
 AMR_x = S.logsout{3}.Values.Data(:);
 AMR_y = S.logsout{4}.Values .Data(:);
-AMR_heading = S.logsout{8}.Values.Data(:);
-AMR_speed = S.logsout{7}.Values.Data(:);
-AMR_moving = S.logsout{15}.Values.Data(:);
-AMR_state = S.logsout{2}.Values.Data(:);
-route_x = S.logsout{27}.Values.Data(:);
-route_y = S.logsout{28}.Values.Data(:);
+route_x = S.logsout{26}.Values.Data(:);
+route_y = S.logsout{27}.Values.Data(:);
+
+% AMR_heading = S.logsout{8}.Values.Data(:);
+% AMR_speed = S.logsout{7}.Values.Data(:);
+% AMR_moving = S.logsout{15}.Values.Data(:);
+% AMR_state = S.logsout{2}.Values.Data(:);
 
 
-
+fh = figure();
+fh.WindowState = 'maximized';
 p=plot(route_x, route_y,'-o');
 p.MarkerSize = 5;
 hold on
