@@ -15,7 +15,26 @@ T_ind0 = readtable(which('route_teste_aplicacao_fundo.csv'));
 
 T=T_ind0;
 
+
+%% DEPLOY param
+% Abre o modelo
+%open_system(model);
+
 %% Define os parâmetros de DEPLOY
 num_of_wps = size(T, 1);
 tfinal = inf;
-L = 0.5;
+L = 1.5; % look-ahead distance [m]
+
+
+
+
+% slrtExplorer
+tg = slrealtime('10.200.38.50');
+tg.connect
+tg.status
+tg.stop
+model = 'AMR_main_24a';
+slbuild(model)
+tg.load(model)
+tg.start
+tg.status
