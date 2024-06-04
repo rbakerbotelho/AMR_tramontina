@@ -18,28 +18,36 @@ T=T_ind0;
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
 tstep = 50e-3;
-tfinal = 500;
-L = 1.5;
+tfinal = 380;
+L = 0.5;
 vehicle_wheelbase = 2.367; %[m]
 yaw_diff_threshold = 20; %[deg]
+search_radius = 3*L; 
+
 
 %% SIMUL param
 % Abre o modelo
-%open_system(model);
+% open_system(model);
 
+
+%% Server
 %Inicia o servidor web para receber dados do AGV
 % Executar uma unica vez o comando abaixo para abrir a interface web
 %system("start cmd /k python web_interface.py");
 
+
+%% Simul
 % Simula
 S = sim(model);
 
+
+%% Plot
 % Separa as variáveis observadas
 AMR_t = S.logsout{1}.Values.Time;
 AMR_x = S.logsout{3}.Values.Data(:);
 AMR_y = S.logsout{4}.Values .Data(:);
-route_x = S.logsout{28}.Values.Data(:);
-route_y = S.logsout{29}.Values.Data(:);
+route_x = S.logsout{39}.Values.Data(:);
+route_y = S.logsout{40}.Values.Data(:);
 
 fh = figure();
 fh.WindowState = 'maximized';
@@ -60,6 +68,10 @@ grid minor
 
 % Faz um video
 % run('scripts\create_video.m');
+
+
+
+
 
 
 

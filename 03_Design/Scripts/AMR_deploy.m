@@ -33,6 +33,7 @@ tg = slrealtime('10.200.38.50');
 tg.connect
 tg.status
 tg.stop
+tg.status
 model = 'AMR_main_24a';
 slbuild(model)
 tg.load(model)
