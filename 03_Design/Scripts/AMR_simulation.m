@@ -18,7 +18,7 @@ T=T_ind0;
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
 tstep = 500e-3;
-tfinal = 1;
+tfinal = 2;
 L = 1.5;
 vehicle_wheelbase = 2.367; %[m]
 yaw_diff_threshold = 20; %[deg]
@@ -100,36 +100,38 @@ legend('target', 'executed','vehicle');
 
 
 
-% Coeficientes da linha reta
-a = -0.92;
-b = 3.55;
-
-% Gerar vetor x de 0 a 20
-x = linspace(0, 20, 100); % 100 pontos entre 0 e 20
-
-% Calcular os valores de y para a linha reta
-y = a*x + b;
-
-% Plotar a linha reta
-figure;
-plot(x, y, 'b', 'LineWidth', 2);
-hold on;
-
-% Plotar o círculo
-theta = linspace(0, 2*pi, 100); % ângulos para desenhar o círculo
-circle_x = 15 + 3*cos(theta); % coordenadas x do círculo
-circle_y = -11 + 3*sin(theta); % coordenadas y do círculo
-plot(circle_x, circle_y, 'r', 'LineWidth', 2);
-
-% Adicionar legendas e rótulos
-legend('Linha Reta', 'Círculo');
-xlabel('x');
-ylabel('y');
-title('Linha Reta e Círculo');
-axis equal;
-grid on;
-
-
+% 
+% 
+% % Coeficientes da linha reta
+% a = -0.92;
+% b = 3.55;
+% 
+% % Gerar vetor x de 0 a 20
+% x = linspace(0, 20, 100); % 100 pontos entre 0 e 20
+% 
+% % Calcular os valores de y para a linha reta
+% y = a*x + b;
+% 
+% % Plotar a linha reta
+% figure;
+% plot(x, y, 'b', 'LineWidth', 2);
+% hold on;
+% 
+% % Plotar o círculo
+% theta = linspace(0, 2*pi, 100); % ângulos para desenhar o círculo
+% circle_x = 15 + 3*cos(theta); % coordenadas x do círculo
+% circle_y = -11 + 3*sin(theta); % coordenadas y do círculo
+% plot(circle_x, circle_y, 'r', 'LineWidth', 2);
+% 
+% % Adicionar legendas e rótulos
+% legend('Linha Reta', 'Círculo');
+% xlabel('x');
+% ylabel('y');
+% title('Linha Reta e Círculo');
+% axis equal;
+% grid on;
+% 
+% 
 
 
 
