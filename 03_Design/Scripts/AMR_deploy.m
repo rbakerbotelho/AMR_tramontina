@@ -13,7 +13,7 @@ T_out1 = readtable(which('route7.csv')); % Linha Reta 239
 % rotas INTERNAS pré-cadastradas
 T_ind0 = readtable(which('route_teste_aplicacao_fundo.csv'));
 
-T=T_ind0;
+T=T_out0;
 
 
 %% DEPLOY param

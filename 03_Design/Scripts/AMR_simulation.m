@@ -7,8 +7,8 @@ model='simulAMR_stateflow';
 addpath(genpath(fileparts( which(model) )));
 
 % rotas EXTERNAS pré-cadastradas
-T_ext0 = readtable(which('route6.csv')); % 'T' atrás tintas
-T_ext1 = readtable(which('route7.csv')); % Linha Reta 239
+T_out0 = readtable(which('route6.csv')); % 'T' atrás tintas
+T_out1 = readtable(which('route7.csv')); % Linha Reta 239
 
 % rotas INTERNAS pré-cadastradas
 T_ind0 = readtable(which('mapa_aplicacao_fundos_20240514_result.csv'));
@@ -17,12 +17,12 @@ T=T_ind0;
 
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
-tstep = 50e-3;
-tfinal = 380;
-L = 0.5;
+tstep = 500e-3;
+tfinal = 1;
+L = 1.5;
 vehicle_wheelbase = 2.367; %[m]
 yaw_diff_threshold = 20; %[deg]
-search_radius = 3*L; 
+search_radius = 2*L; 
 
 
 %% SIMUL param
@@ -49,14 +49,40 @@ AMR_y = S.logsout{4}.Values .Data(:);
 route_x = S.logsout{39}.Values.Data(:);
 route_y = S.logsout{40}.Values.Data(:);
 
+% fh = figure();
+% fh.WindowState = 'maximized';
+% p=plot(route_x, route_y,'-o');
+% p.MarkerSize = 5;
+% hold on
+% plot(AMR_x, AMR_y, 'LineWidth',2);
+% legend('target','executed')
+% grid minor 
+
+
+% Your existing code
 fh = figure();
-fh.WindowState = 'maximized';
-p=plot(route_x, route_y,'-o');
+fh.Position = [100, 100, 800, 800]; % [left, bottom, width, height]
+p = plot(route_x, route_y, '-o');
 p.MarkerSize = 5;
-hold on
-plot(AMR_x, AMR_y, 'LineWidth',2);
-legend('target','executed')
-grid minor 
+hold on;
+plot(AMR_x, AMR_y, 'LineWidth', 2);
+legend('target', 'executed');
+grid minor;
+
+% Center coordinates
+centerX = 15;
+centerY = -11;
+
+% Radius of the circle
+
+
+% Plot the circle
+rectangle('Position', [centerX-search_radius, centerY-search_radius, 2*search_radius, 2*search_radius],...
+    'Curvature', [1, 1], 'EdgeColor', 'b', 'LineStyle', '--', 'LineWidth', 2);
+
+% Plot the center point
+plot(centerX, centerY, 'ro', 'MarkerSize', 10); % Red dot
+legend('target', 'executed','vehicle');
 
 
 % % Geoplot Figura total
@@ -74,6 +100,34 @@ grid minor
 
 
 
+% Coeficientes da linha reta
+a = -0.92;
+b = 3.55;
+
+% Gerar vetor x de 0 a 20
+x = linspace(0, 20, 100); % 100 pontos entre 0 e 20
+
+% Calcular os valores de y para a linha reta
+y = a*x + b;
+
+% Plotar a linha reta
+figure;
+plot(x, y, 'b', 'LineWidth', 2);
+hold on;
+
+% Plotar o círculo
+theta = linspace(0, 2*pi, 100); % ângulos para desenhar o círculo
+circle_x = 15 + 3*cos(theta); % coordenadas x do círculo
+circle_y = -11 + 3*sin(theta); % coordenadas y do círculo
+plot(circle_x, circle_y, 'r', 'LineWidth', 2);
+
+% Adicionar legendas e rótulos
+legend('Linha Reta', 'Círculo');
+xlabel('x');
+ylabel('y');
+title('Linha Reta e Círculo');
+axis equal;
+grid on;
 
 
 
