@@ -17,13 +17,12 @@ T=T_ind0;
 
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
-tstep = 50e-3;
-tfinal = 400;
+tstep = 500e-3;
+tfinal = 250;
 L = 0.5;
 vehicle_wheelbase = 2.367; %[m]
-yaw_diff_threshold = 45; %[deg]
+yaw_diff_threshold = 20; %[deg]
 %search_radius = 1.5*L; 
-search_radius = 1.0; 
 
 
 %% SIMUL param
@@ -79,9 +78,9 @@ init_index = S.logsout{40}.Values.Data(1);
 % Radius of the circle
 
 % Plot the circle
-rectangle('Position', [centerX-search_radius, centerY-search_radius, 2*search_radius, 2*search_radius],...
-    'Curvature', [1, 1], 'EdgeColor', 'k', 'LineStyle', '--', 'LineWidth', 2);
-hold on;
+%rectangle('Position', [centerX-search_radius, centerY-search_radius, 2*search_radius, 2*search_radius],...
+%    'Curvature', [1, 1], 'EdgeColor', 'k', 'LineStyle', '--', 'LineWidth', 2);
+%hold on;
 
 % Plot the center point as a filled circle
 plot(centerX, centerY, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r'); % Red filled circle
