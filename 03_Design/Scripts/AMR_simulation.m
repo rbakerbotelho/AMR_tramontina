@@ -17,12 +17,13 @@ T=T_ind0;
 
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
-tstep = 500e-3;
-tfinal = 2;
-L = 1.5;
+tstep = 50e-3;
+tfinal = 400;
+L = 0.5;
 vehicle_wheelbase = 2.367; %[m]
-yaw_diff_threshold = 20; %[deg]
-search_radius = 2*L; 
+yaw_diff_threshold = 45; %[deg]
+%search_radius = 1.5*L; 
+search_radius = 1.0; 
 
 
 %% SIMUL param
@@ -46,8 +47,8 @@ S = sim(model);
 AMR_t = S.logsout{1}.Values.Time;
 AMR_x = S.logsout{3}.Values.Data(:);
 AMR_y = S.logsout{4}.Values .Data(:);
-route_x = S.logsout{39}.Values.Data(:);
-route_y = S.logsout{40}.Values.Data(:);
+route_x = S.logsout{43}.Values.Data(:);
+route_y = S.logsout{44}.Values.Data(:);
 
 % fh = figure();
 % fh.WindowState = 'maximized';
@@ -70,19 +71,31 @@ legend('target', 'executed');
 grid minor;
 
 % Center coordinates
-centerX = 15;
-centerY = -11;
+centerX = S.logsout{17}.Values.Data(1);
+centerY = S.logsout{18}.Values.Data(1);
+init_heading = S.logsout{19}.Values.Data(1);
+init_index = S.logsout{40}.Values.Data(1);
 
 % Radius of the circle
 
-
 % Plot the circle
 rectangle('Position', [centerX-search_radius, centerY-search_radius, 2*search_radius, 2*search_radius],...
-    'Curvature', [1, 1], 'EdgeColor', 'b', 'LineStyle', '--', 'LineWidth', 2);
+    'Curvature', [1, 1], 'EdgeColor', 'k', 'LineStyle', '--', 'LineWidth', 2);
+hold on;
 
-% Plot the center point
-plot(centerX, centerY, 'ro', 'MarkerSize', 10); % Red dot
-legend('target', 'executed','vehicle');
+% Plot the center point as a filled circle
+plot(centerX, centerY, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r'); % Red filled circle
+legend('target', 'executed', 'vehicle');
+
+% Add annotation for init_index
+%text(centerX+2, centerY+2, ['i=' num2str(init_index)], 'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12);
+text(centerX+1, centerY+1, num2str(init_index), 'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12, 'FontWeight', 'bold');
+
+
+% Plot arrow
+quiver(centerX, centerY, cos(deg2rad(init_heading)), sin(deg2rad(init_heading)), 3, 'LineWidth', 3, 'Color', 'k');
+legend('target', 'executed', 'vehicle');
+
 
 
 % % Geoplot Figura total
