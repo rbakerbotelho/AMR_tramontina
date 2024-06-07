@@ -18,11 +18,10 @@ T=T_ind0;
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
 tstep = 500e-3;
-tfinal = 250;
-L = 0.5;
+tfinal = 350;
+L = 0.25;
 vehicle_wheelbase = 2.367; %[m]
-yaw_diff_threshold = 20; %[deg]
-%search_radius = 1.5*L; 
+yaw_diff_threshold = 25; %[deg]
 
 
 %% SIMUL param
@@ -46,8 +45,8 @@ S = sim(model);
 AMR_t = S.logsout{1}.Values.Time;
 AMR_x = S.logsout{3}.Values.Data(:);
 AMR_y = S.logsout{4}.Values .Data(:);
-route_x = S.logsout{43}.Values.Data(:);
-route_y = S.logsout{44}.Values.Data(:);
+route_x = S.logsout{44}.Values.Data(:);
+route_y = S.logsout{45}.Values.Data(:);
 
 % fh = figure();
 % fh.WindowState = 'maximized';
@@ -70,10 +69,12 @@ legend('target', 'executed');
 grid minor;
 
 % Center coordinates
-centerX = S.logsout{17}.Values.Data(1);
-centerY = S.logsout{18}.Values.Data(1);
+init_X = S.logsout{17}.Values.Data(1);
+init_Y = S.logsout{18}.Values.Data(1);
 init_heading = S.logsout{19}.Values.Data(1);
 init_index = S.logsout{40}.Values.Data(1);
+search_radius_to_plot = S.logsout{42}.Values.Data(1);
+
 
 % Radius of the circle
 
@@ -83,16 +84,30 @@ init_index = S.logsout{40}.Values.Data(1);
 %hold on;
 
 % Plot the center point as a filled circle
-plot(centerX, centerY, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r'); % Red filled circle
+plot(init_X, init_Y, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r'); % Red filled circle
 legend('target', 'executed', 'vehicle');
 
 % Add annotation for init_index
 %text(centerX+2, centerY+2, ['i=' num2str(init_index)], 'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12);
-text(centerX+1, centerY+1, num2str(init_index), 'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12, 'FontWeight', 'bold');
+% Plot text for init_index
+text(init_X + 1, init_Y + 1, num2str(init_index), 'HorizontalAlignment', 'center', ...
+    'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12, 'FontWeight', 'bold');
 
+% Plot text for search_radius_to_plot
+text(init_X + 1, init_Y - 1, ['Search Radius: ', num2str(search_radius_to_plot), ' [m]'], ...
+    'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', ...
+    'FontSize', 8);
 
 % Plot arrow
-quiver(centerX, centerY, cos(deg2rad(init_heading)), sin(deg2rad(init_heading)), 3, 'LineWidth', 3, 'Color', 'k');
+% Plot arrow for vehicle direction
+quiver(init_X, init_Y, cosd(init_heading), sind(init_heading), 3, 'LineWidth', 3, 'Color', 'k');
+
+% Plot cone for acceptable range
+theta = linspace(init_heading-yaw_diff_threshold, init_heading+yaw_diff_threshold, 100);
+coneX = [init_X, init_X + search_radius_to_plot * cosd(theta), init_X];
+coneY = [init_Y, init_Y + search_radius_to_plot * sind(theta), init_Y];
+patch(coneX, coneY, 'b', 'FaceAlpha', 0.3, 'EdgeColor', 'none');
+
 legend('target', 'executed', 'vehicle');
 
 
