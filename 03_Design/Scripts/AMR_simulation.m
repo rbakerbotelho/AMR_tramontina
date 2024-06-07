@@ -18,8 +18,8 @@ T=T_ind0;
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
 tstep = 500e-3;
-tfinal = 350;
-L = 0.25;
+tfinal = 100;
+L = 1.5;
 vehicle_wheelbase = 2.367; %[m]
 yaw_diff_threshold = 25; %[deg]
 
@@ -45,8 +45,8 @@ S = sim(model);
 AMR_t = S.logsout{1}.Values.Time;
 AMR_x = S.logsout{3}.Values.Data(:);
 AMR_y = S.logsout{4}.Values .Data(:);
-route_x = S.logsout{44}.Values.Data(:);
-route_y = S.logsout{45}.Values.Data(:);
+route_x = S.logsout{45}.Values.Data(:);
+route_y = S.logsout{46}.Values.Data(:);
 
 % fh = figure();
 % fh.WindowState = 'maximized';
@@ -74,7 +74,7 @@ init_Y = S.logsout{18}.Values.Data(1);
 init_heading = S.logsout{19}.Values.Data(1);
 init_index = S.logsout{40}.Values.Data(1);
 search_radius_to_plot = S.logsout{42}.Values.Data(1);
-
+yaw_diff_threshold_to_plot = S.logsout{43}.Values.Data(1) ; 
 
 % Radius of the circle
 
@@ -103,7 +103,7 @@ text(init_X + 1, init_Y - 1, ['Search Radius: ', num2str(search_radius_to_plot),
 quiver(init_X, init_Y, cosd(init_heading), sind(init_heading), 3, 'LineWidth', 3, 'Color', 'k');
 
 % Plot cone for acceptable range
-theta = linspace(init_heading-yaw_diff_threshold, init_heading+yaw_diff_threshold, 100);
+theta = linspace(init_heading-yaw_diff_threshold_to_plot, init_heading+yaw_diff_threshold_to_plot, 100);
 coneX = [init_X, init_X + search_radius_to_plot * cosd(theta), init_X];
 coneY = [init_Y, init_Y + search_radius_to_plot * sind(theta), init_Y];
 patch(coneX, coneY, 'b', 'FaceAlpha', 0.3, 'EdgeColor', 'none');
