@@ -13,8 +13,7 @@ T_out1 = readtable(which('route7.csv')); % Linha Reta 239
 % rotas INTERNAS pré-cadastradas
 T_ind0 = readtable(which('route_teste_aplicacao_fundo.csv'));
 
-T=T_out0;
-
+T=T_ind0;
 
 %% DEPLOY param
 % Abre o modelo
@@ -28,9 +27,12 @@ L = 1.5; % look-ahead distance [m]
 
 
 
+%% DEPLOY
+
 % slrtExplorer
 tg = slrealtime('10.200.38.50');
 tg.connect
+speedgoat.setTargetTime(datenum(datetime('now', TimeZone='America/Sao_Paulo')))
 tg.status
 tg.stop
 tg.status

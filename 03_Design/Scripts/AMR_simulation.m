@@ -17,11 +17,10 @@ T=T_ind0;
 
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
-tstep = 500e-3;
+tstep = 50e-3;
 tfinal = 500;
 L = 1.5;
 vehicle_wheelbase = 2.367; %[m]
-yaw_diff_threshold = 25; %[deg]
 
 
 %% SIMUL param
