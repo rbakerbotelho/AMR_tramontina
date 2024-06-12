@@ -3,22 +3,23 @@ close('all');
 clc;
 
 % Add os paths dos modelos
-model='simulAMR_stateflow';
+%model='simulAMR_stateflow_indoor';
+model='simulAMR_stateflow_outdoor';
 addpath(genpath(fileparts( which(model) )));
 
 % rotas EXTERNAS pré-cadastradas
-T_out0 = readtable(which('route6.csv')); % 'T' atrás tintas
+T_out0 = readtable(which('routeT.csv')); % 'T' atrás tintas
 T_out1 = readtable(which('route7.csv')); % Linha Reta 239
 
 % rotas INTERNAS pré-cadastradas
 T_ind0 = readtable(which('mapa_aplicacao_fundos_20240514_result.csv'));
 
-T=T_ind0;
+T=T_out0;
 
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
 tstep = 50e-3;
-tfinal = 500;
+tfinal = 50;
 L = 1.5;
 vehicle_wheelbase = 2.367; %[m]
 
@@ -39,13 +40,39 @@ vehicle_wheelbase = 2.367; %[m]
 S = sim(model);
 
 
+
 %% Plot
+% Separa as variáveis observadas
+AMR_t = S.logsout{1}.Values.Time;
+AMR_Lat = S.logsout{1}.Values.Data(:);
+AMR_Lon = S.logsout{2}.Values.Data(:);
+route_x = S.logsout{45}.Values.Data(:);
+route_y = S.logsout{46}.Values.Data(:);
+
+
+% Geoplot Figura total
+figure('color','w');
+%geoplot(T.Latitude,T.Longitude,'b-*','LineWidth',2);
+%hold('on');
+geoplot(AMR_Lat,AMR_Lon,'r-','LineWidth',2)
+geobasemap satellite;
+
+
+
+
+
+
+
+
+
+
+%% Plot Indoor
 % Separa as variáveis observadas
 AMR_t = S.logsout{1}.Values.Time;
 AMR_x = S.logsout{3}.Values.Data(:);
 AMR_y = S.logsout{4}.Values .Data(:);
-route_x = S.logsout{45}.Values.Data(:);
-route_y = S.logsout{46}.Values.Data(:);
+route_x = S.logsout{46}.Values.Data(:);
+route_y = S.logsout{47}.Values.Data(:);
 
 % fh = figure();
 % fh.WindowState = 'maximized';
@@ -72,8 +99,8 @@ init_X = S.logsout{17}.Values.Data(1);
 init_Y = S.logsout{18}.Values.Data(1);
 init_heading = S.logsout{19}.Values.Data(1);
 init_index = S.logsout{40}.Values.Data(1);
-search_radius_to_plot = S.logsout{42}.Values.Data(1);
-yaw_diff_threshold_to_plot = S.logsout{43}.Values.Data(1) ; 
+search_radius_to_plot = S.logsout{43}.Values.Data(1);
+yaw_diff_threshold_to_plot = S.logsout{44}.Values.Data(1) ; 
 
 % Radius of the circle
 
