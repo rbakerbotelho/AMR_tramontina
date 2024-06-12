@@ -96,6 +96,7 @@ CM_ SG_ 936 switch7 "RCU_LateralFrontRight";
 CM_ SG_ 936 switch8 "RCU_LateralRearRight";
 CM_ SG_ 936 switch9 "RCU_LateralFrontLeft";
 CM_ SG_ 936 switch12 "";
+CM_ SG_ 936 switch13 "CurtainRightTop";
 CM_ SG_ 936 switch15 "CurtainLeftBotton";
 CM_ SG_ 936 switch18 "RCU_LateralRearLeft";
 CM_ SG_ 936 switch10 "";
