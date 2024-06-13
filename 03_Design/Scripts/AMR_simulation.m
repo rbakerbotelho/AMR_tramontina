@@ -18,11 +18,11 @@ T=T_out0;
 
 %% Define os parâmetros de SIMULAÇÃO
 num_of_wps = size(T, 1);
-tstep = 50e-3;
-tfinal = 50;
-L = 1.5;
+tstep = 500e-3;
+tfinal = 300;
+L = 1.25;
 vehicle_wheelbase = 2.367; %[m]
-
+close('all');
 
 %% SIMUL param
 % Abre o modelo
@@ -40,21 +40,39 @@ vehicle_wheelbase = 2.367; %[m]
 S = sim(model);
 
 
-
 %% Plot
 % Separa as variáveis observadas
 AMR_t = S.logsout{1}.Values.Time;
 AMR_Lat = S.logsout{1}.Values.Data(:);
 AMR_Lon = S.logsout{2}.Values.Data(:);
-route_x = S.logsout{45}.Values.Data(:);
-route_y = S.logsout{46}.Values.Data(:);
+search_radius_to_plot = S.logsout{45}.Values.Data(1);
 
+% Define the center and radius
+center_lat = AMR_Lat(1);
+center_lon = AMR_Lon(1);
 
-% Geoplot Figura total
+% Number of points to create the circle
+num_points = 50;
+
+% Conversion factors
+lat_to_meters = 111195;  % Roughly the number of meters per degree latitude
+lon_to_meters = 111195 * abs(cosd(center_lat));  % Roughly the number of meters per degree longitude at the center latitude
+
+% Create the circle points
+theta = linspace(0, 2*pi, num_points);lat_circle = center_lat + (L / lat_to_meters) * cos(theta);
+lon_circle = center_lon + (L / lon_to_meters) * sin(theta);
+
+% Geoplot Figure total
 figure('color','w');
-%geoplot(T.Latitude,T.Longitude,'b-*','LineWidth',2);
-%hold('on');
+geoplot(T.Latitude,T.Longitude,'b-*','LineWidth',2);
+hold('on');
 geoplot(AMR_Lat,AMR_Lon,'r-','LineWidth',2)
+hold('on');
+geoplot(AMR_Lat(1),AMR_Lon(1),'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r'); % Red filled circle
+
+% Plot the dashed circle
+geoplot(lat_circle, lon_circle, 'r--', 'LineWidth', 1.5);
+
 geobasemap satellite;
 
 
@@ -66,91 +84,136 @@ geobasemap satellite;
 
 
 
-%% Plot Indoor
-% Separa as variáveis observadas
-AMR_t = S.logsout{1}.Values.Time;
-AMR_x = S.logsout{3}.Values.Data(:);
-AMR_y = S.logsout{4}.Values .Data(:);
-route_x = S.logsout{46}.Values.Data(:);
-route_y = S.logsout{47}.Values.Data(:);
-
-% fh = figure();
-% fh.WindowState = 'maximized';
-% p=plot(route_x, route_y,'-o');
-% p.MarkerSize = 5;
-% hold on
-% plot(AMR_x, AMR_y, 'LineWidth',2);
-% legend('target','executed')
-% grid minor 
-
-
-% Your existing code
-fh = figure();
-fh.Position = [100, 100, 800, 800]; % [left, bottom, width, height]
-p = plot(route_x, route_y, '-o');
-p.MarkerSize = 5;
-hold on;
-plot(AMR_x, AMR_y, 'LineWidth', 2);
-legend('target', 'executed');
-grid minor;
-
-% Center coordinates
-init_X = S.logsout{17}.Values.Data(1);
-init_Y = S.logsout{18}.Values.Data(1);
-init_heading = S.logsout{19}.Values.Data(1);
-init_index = S.logsout{40}.Values.Data(1);
-search_radius_to_plot = S.logsout{43}.Values.Data(1);
-yaw_diff_threshold_to_plot = S.logsout{44}.Values.Data(1) ; 
-
-% Radius of the circle
-
-% Plot the circle
-%rectangle('Position', [centerX-search_radius, centerY-search_radius, 2*search_radius, 2*search_radius],...
-%    'Curvature', [1, 1], 'EdgeColor', 'k', 'LineStyle', '--', 'LineWidth', 2);
-%hold on;
-
-% Plot the center point as a filled circle
-plot(init_X, init_Y, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r'); % Red filled circle
-legend('target', 'executed', 'vehicle');
-
-% Add annotation for init_index
-%text(centerX+2, centerY+2, ['i=' num2str(init_index)], 'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12);
-% Plot text for init_index
-text(init_X + 1, init_Y + 1, num2str(init_index), 'HorizontalAlignment', 'center', ...
-    'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12, 'FontWeight', 'bold');
-
-% Plot text for search_radius_to_plot
-text(init_X + 1, init_Y - 1, ['Search Radius: ', num2str(search_radius_to_plot), ' [m]'], ...
-    'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', ...
-    'FontSize', 8);
-
-% Plot arrow
-% Plot arrow for vehicle direction
-quiver(init_X, init_Y, cosd(init_heading), sind(init_heading), 3, 'LineWidth', 3, 'Color', 'k');
-
-% Plot cone for acceptable range
-theta = linspace(init_heading-yaw_diff_threshold_to_plot, init_heading+yaw_diff_threshold_to_plot, 100);
-coneX = [init_X, init_X + search_radius_to_plot * cosd(theta), init_X];
-coneY = [init_Y, init_Y + search_radius_to_plot * sind(theta), init_Y];
-patch(coneX, coneY, 'b', 'FaceAlpha', 0.3, 'EdgeColor', 'none');
-
-legend('target', 'executed', 'vehicle');
 
 
 
-% % Geoplot Figura total
-% figure('color','w');
-% geoplot(T1.Latitude,T1.Longitude,'b-*','LineWidth',2);
-% hold('on');
-% geoplot(AGV_lat,AGV_lng,'r-','LineWidth',2)
-% geobasemap satellite;
+
+
+
+
+
+
+
+
+% % % % % % % 
+% % % % % % % %% Plot Indoor
+% % % % % % % % Separa as variáveis observadas
+% % % % % % % AMR_t = S.logsout{1}.Values.Time;
+% % % % % % % AMR_x = S.logsout{3}.Values.Data(:);
+% % % % % % % AMR_y = S.logsout{4}.Values .Data(:);
+% % % % % % % route_x = S.logsout{46}.Values.Data(:);
+% % % % % % % route_y = S.logsout{47}.Values.Data(:);
+% % % % % % % 
+% % % % % % % % fh = figure();
+% % % % % % % % fh.WindowState = 'maximized';
+% % % % % % % % p=plot(route_x, route_y,'-o');
+% % % % % % % % p.MarkerSize = 5;
+% % % % % % % % hold on
+% % % % % % % % plot(AMR_x, AMR_y, 'LineWidth',2);
+% % % % % % % % legend('target','executed')
+% % % % % % % % grid minor 
+% % % % % % % 
+% % % % % % % 
+% % % % % % % % Your existing code
+% % % % % % % fh = figure();
+% % % % % % % fh.Position = [100, 100, 800, 800]; % [left, bottom, width, height]
+% % % % % % % p = plot(route_x, route_y, '-o');
+% % % % % % % p.MarkerSize = 5;
+% % % % % % % hold on;
+% % % % % % % plot(AMR_x, AMR_y, 'LineWidth', 2);
+% % % % % % % legend('target', 'executed');
+% % % % % % % grid minor;
+% % % % % % % 
+% % % % % % % % Center coordinates
+% % % % % % % init_X = S.logsout{17}.Values.Data(1);
+% % % % % % % init_Y = S.logsout{18}.Values.Data(1);
+% % % % % % % init_heading = S.logsout{19}.Values.Data(1);
+% % % % % % % init_index = S.logsout{40}.Values.Data(1);
+% % % % % % % search_radius_to_plot = S.logsout{43}.Values.Data(1);
+% % % % % % % yaw_diff_threshold_to_plot = S.logsout{44}.Values.Data(1) ; 
+% % % % % % % 
+% % % % % % % % Radius of the circle
+% % % % % % % 
+% % % % % % % % Plot the circle
+% % % % % % % %rectangle('Position', [centerX-search_radius, centerY-search_radius, 2*search_radius, 2*search_radius],...
+% % % % % % % %    'Curvature', [1, 1], 'EdgeColor', 'k', 'LineStyle', '--', 'LineWidth', 2);
+% % % % % % % %hold on;
+% % % % % % % 
+% % % % % % % % Plot the center point as a filled circle
+% % % % % % % plot(init_X, init_Y, 'ro', 'MarkerSize', 10, 'MarkerFaceColor', 'r'); % Red filled circle
+% % % % % % % legend('target', 'executed', 'vehicle');
+% % % % % % % 
+% % % % % % % % Add annotation for init_index
+% % % % % % % %text(centerX+2, centerY+2, ['i=' num2str(init_index)], 'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12);
+% % % % % % % % Plot text for init_index
+% % % % % % % text(init_X + 1, init_Y + 1, num2str(init_index), 'HorizontalAlignment', 'center', ...
+% % % % % % %     'VerticalAlignment', 'middle', 'Color', 'k', 'FontSize', 12, 'FontWeight', 'bold');
+% % % % % % % 
+% % % % % % % % Plot text for search_radius_to_plot
+% % % % % % % text(init_X + 1, init_Y - 1, ['Search Radius: ', num2str(search_radius_to_plot), ' [m]'], ...
+% % % % % % %     'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', 'Color', 'k', ...
+% % % % % % %     'FontSize', 8);
+% % % % % % % 
+% % % % % % % % Plot arrow
+% % % % % % % % Plot arrow for vehicle direction
+% % % % % % % quiver(init_X, init_Y, cosd(init_heading), sind(init_heading), 3, 'LineWidth', 3, 'Color', 'k');
+% % % % % % % 
+% % % % % % % % Plot cone for acceptable range
+% % % % % % % theta = linspace(init_heading-yaw_diff_threshold_to_plot, init_heading+yaw_diff_threshold_to_plot, 100);
+% % % % % % % coneX = [init_X, init_X + search_radius_to_plot * cosd(theta), init_X];
+% % % % % % % coneY = [init_Y, init_Y + search_radius_to_plot * sind(theta), init_Y];
+% % % % % % % patch(coneX, coneY, 'b', 'FaceAlpha', 0.3, 'EdgeColor', 'none');
+% % % % % % % 
+% % % % % % % legend('target', 'executed', 'vehicle');
+% % % % % % % 
+% % % % % % % 
+% % % % % % % 
+% % % % % % % 
+% % % % % % % 
+% % % % % % % 
+% % % % % % % 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % Faz um video
 % run('scripts\create_video.m');
-
-
-
-
 
 
 % 

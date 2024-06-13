@@ -7,7 +7,7 @@ model='AMR_main_24a';
 addpath(genpath(fileparts( which(model) )));
 
 % rotas EXTERNAS pré-cadastradas
-T_out0 = readtable(which('route6.csv')); % 'T' atrás tintas
+T_out0 = readtable(which('routeT.csv')); % 'T' atrás tintas
 T_out1 = readtable(which('route7.csv')); % Linha Reta 239
 
 % rotas INTERNAS pré-cadastradas
