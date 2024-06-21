@@ -1,0 +1,47 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+
+BS_:
+
+BU_:
+
+
+BO_ 341 RCU_OperationMode: 8 Vector__XXX
+ SG_ rcu_front_ToDo : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_Direction : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_Run : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_rear_Run : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_rear_ToDo : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_rear_Direction : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_Moving : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_rear_Moving : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 342 RCU_OperationMode_feedback: 8 Vector__XXX
+ SG_ rcu_front_ToDo_feedback : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_Direction_feedback : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_Run_feedback : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_Moving_feedback : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+
+

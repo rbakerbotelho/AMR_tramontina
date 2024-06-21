@@ -1,4 +1,4 @@
-VERSION ""
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
 
 
 NS_ : 
@@ -22,14 +22,6 @@ NS_ :
 	SIG_GROUP_
 	SIG_VALTYPE_
 	SIGTYPE_VALTYPE_
-	BO_TX_BU_
-	BA_DEF_REL_
-	BA_REL_
-	BA_DEF_DEF_REL_
-	BU_SG_REL_
-	BU_EV_REL_
-	BU_BO_REL_
-	SG_MUL_VAL_
 
 BS_:
 
@@ -57,10 +49,10 @@ BO_ 374 outdoor_scanner_API: 2 Vector__XXX
  SG_ LocInitAtPose : 11|1@1+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 370 outdoor_scanner_PosX: 8 Vector__XXX
- SG_ X : 0|64@1- (1,0) [-9.2233720369e+18|9.2233720369e+18] "mm" Vector__XXX
+ SG_ X : 0|64@1- (1,0) [-9.2233720369e+018|9.2233720369e+018] "mm" Vector__XXX
 
 BO_ 371 outdoor_scanner_PosY: 8 Vector__XXX
- SG_ Y : 0|64@1- (1,0) [-9.2233720369e+18|9.2233720369e+18] "" Vector__XXX
+ SG_ Y : 0|64@1- (1,0) [-9.2233720369e+018|9.2233720369e+018] "" Vector__XXX
 
 BO_ 373 outdoor_scanner_Odometer_Vel: 8 Vector__XXX
  SG_ velX : 0|16@1- (1,0) [-32768|32768] "mm/s" Vector__XXX
@@ -110,7 +102,6 @@ BO_ 342 RCU_OperationMode_feedback: 8 Vector__XXX
  SG_ rcu_front_Moving_feedback : 3|1@1+ (1,0) [0|0] "" Vector__XXX
 
 
-
 CM_ SG_ 374 LocSetMap "Load and activate a map";
 CM_ SG_ 374 LocLoadMap "Loads a map to the RAM of the localization controller if not already loaded. It does not set the map for localization";
 CM_ SG_ 374 LocClearMap "Removes the cached maps from the RAM of the lcoalization controller";
@@ -118,10 +109,8 @@ CM_ SG_ 374 LocInitAtPose "Sets the initial pose and automatically optimizes the
 CM_ SG_ 344 OperationMode_idle " ";
 CM_ SG_ 341 rcu_front_ToDo "";
 BA_DEF_  "BusType" STRING ;
-BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
-BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+38 3.4e+38;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT -3.4e+038 3.4e+038;
 BA_DEF_DEF_  "BusType" "CAN";
-BA_DEF_DEF_  "GenMsgCycleTime" 0;
 BA_DEF_DEF_  "GenSigStartValue" 0;
 BA_ "BusType" "CAN";
 VAL_ 372 LocalizationStatus 10 "OK" 20 "Warning" 30 "Not Localized" 40 "System Error" 100 "Config Mode" ;
@@ -146,4 +135,3 @@ SIG_VALTYPE_ 371 Y : 2;
 SIG_VALTYPE_ 373 velAng : 1;
 SIG_VALTYPE_ 290 speed_m_per_min : 1;
 SIG_VALTYPE_ 290 speed_m_per_s : 1;
-
