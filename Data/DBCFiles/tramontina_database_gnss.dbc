@@ -53,4 +53,8 @@ BO_ 274 gnss_Status: 8 Vector__XXX
 
 
 
+SIG_VALTYPE_ 272 lat : 1;
+SIG_VALTYPE_ 272 lon : 1;
+SIG_VALTYPE_ 273 heading : 1;
+SIG_VALTYPE_ 273 height : 1;
 
