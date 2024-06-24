@@ -37,12 +37,12 @@ BU_:
 
 
 BO_ 272 gnss_LatLon: 8 Vector__XXX
- SG_ lat : 0|32@1- (1e-07,0) [-90|90] "deg" Vector__XXX
- SG_ lon : 32|32@1- (1e-07,0) [-180|180] "deg" Vector__XXX
+ SG_ lat : 0|32@1- (1,0) [-90|90] "deg" Vector__XXX
+ SG_ lon : 32|32@1- (1,0) [-180|180] "deg" Vector__XXX
 
 BO_ 273 gnss_HeadHeight: 8 Vector__XXX
- SG_ heading : 0|32@1- (1e-05,0) [0|360] "deg" Vector__XXX
- SG_ height : 32|32@1- (0.001,0) [0|0] "m" Vector__XXX
+ SG_ heading : 0|32@1- (1,0) [0|360] "deg" Vector__XXX
+ SG_ height : 32|32@1- (1,0) [0|0] "m" Vector__XXX
 
 BO_ 274 gnss_Status: 8 Vector__XXX
  SG_ numSV : 0|8@1+ (1,0) [0|31] "" Vector__XXX

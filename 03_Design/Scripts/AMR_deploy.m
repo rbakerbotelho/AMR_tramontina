@@ -25,8 +25,6 @@ tfinal = inf;
 L = 1.5; % look-ahead distance [m]
 
 
-
-
 %% DEPLOY
 % slrtExplorer
 tg = slrealtime('10.200.38.50');

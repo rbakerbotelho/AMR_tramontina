@@ -1,4 +1,4 @@
-VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY/4/%%%/4/'%**4YYY///"
+VERSION ""
 
 
 NS_ : 
@@ -22,6 +22,14 @@ NS_ :
 	SIG_GROUP_
 	SIG_VALTYPE_
 	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
 
 BS_:
 
@@ -29,19 +37,24 @@ BU_:
 
 
 BO_ 341 RCU_OperationMode: 8 Vector__XXX
- SG_ rcu_front_ToDo : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ rcu_front_Direction : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_LoadUnload : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_LeftRigth : 1|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ rcu_front_Run : 2|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ rcu_rear_Run : 10|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ rcu_rear_ToDo : 8|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ rcu_rear_Direction : 9|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ rcu_front_Moving : 3|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ rcu_rear_Moving : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_rear_LoadUnload : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_rear_LeftRigth : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_isMoving : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_rear_isMoving : 11|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 342 RCU_OperationMode_feedback: 8 Vector__XXX
- SG_ rcu_front_ToDo_feedback : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ rcu_front_Direction_feedback : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_LoadUnload_feedback : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_LeftRigth_feedback : 1|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ rcu_front_Run_feedback : 2|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ rcu_front_Moving_feedback : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ rcu_front_isMoving_feedback : 3|1@1+ (1,0) [0|0] "" Vector__XXX
 
+
+
+VAL_ 341 rcu_front_LoadUnload 1 "unload" 0 "laod" ;
+VAL_ 341 rcu_front_LeftRigth 1 "left" 0 "rigth" ;
+VAL_ 341 rcu_front_Run 1 "ON" 0 "OFF" ;
 
