@@ -57,11 +57,11 @@ BO_ 0 curtis_input_operational: 8 Vector__XXX
 
 BO_ 936 curtis_encoder_RCUfront: 8 Vector__XXX
  SG_ rotor_position_front : 0|32@1- (0.0002441406,0) [-524288|524287] "" Vector__XXX
- SG_ switch1 : 32|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ switch6 : 37|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ switch7 : 38|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ switch8 : 39|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ switch9 : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch01 : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch06 : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch07 : 38|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch08 : 39|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ switch09 : 40|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ switch12 : 43|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ switch13 : 44|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ switch15 : 46|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -90,15 +90,15 @@ BO_ 680 curtis_torque_RCUfront: 8 Vector__XXX
 CM_ BO_ 424 "RollerConveyorUnit
 ";
 CM_ SG_ 424 motor_temperature_front "";
-CM_ SG_ 936 switch1 "CurtainLeftTop";
-CM_ SG_ 936 switch6 "CurtainRightBotton";
-CM_ SG_ 936 switch7 "RCU_LateralFrontRight";
-CM_ SG_ 936 switch8 "RCU_LateralRearRight";
-CM_ SG_ 936 switch9 "RCU_LateralFrontLeft";
+CM_ SG_ 936 switch01 "RCU_CurtainLeftTop";
+CM_ SG_ 936 switch06 "RCU_CurtainRightBotton";
+CM_ SG_ 936 switch07 "RCU_PalletRightFront";
+CM_ SG_ 936 switch08 "RCU_PalletRightRear";
+CM_ SG_ 936 switch09 "RCU_PalletLeftFront";
 CM_ SG_ 936 switch12 "";
-CM_ SG_ 936 switch13 "CurtainRightTop";
-CM_ SG_ 936 switch15 "CurtainLeftBotton";
-CM_ SG_ 936 switch18 "RCU_LateralRearLeft";
+CM_ SG_ 936 switch13 "RCU_CurtainRightTop";
+CM_ SG_ 936 switch15 "RCU_CurtainLeftBotton";
+CM_ SG_ 936 switch18 "RCU_PalletLeftRear";
 CM_ SG_ 936 switch10 "";
 CM_ BO_ 937 "";
 BA_DEF_  "BusType" STRING ;

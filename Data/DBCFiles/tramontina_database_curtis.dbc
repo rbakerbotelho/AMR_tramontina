@@ -90,15 +90,15 @@ BO_ 678 curtis_torque_left: 8 Vector__XXX
 CM_ BO_ 422 "curtis_feedback_message_left
 ";
 CM_ SG_ 422 motor_temperature_left "";
-CM_ SG_ 934 switch01 "RCU_FrontLeftFlapUP";
-CM_ SG_ 934 switch06 "RCU_FrontRightFlapDown";
-CM_ SG_ 934 switch07 "RCU_RearRightFlapUp";
-CM_ SG_ 934 switch08 "RCU_RearLeftFlapUp";
-CM_ SG_ 934 switch09 "RCU_RearLeftFlapDown";
+CM_ SG_ 934 switch01 "RCU_FlapLeftFrontUP";
+CM_ SG_ 934 switch06 "RCU_FlapRightFrontDown";
+CM_ SG_ 934 switch07 "RCU_FlapRightRearUp";
+CM_ SG_ 934 switch08 "RCU_FlapLeftRearUp";
+CM_ SG_ 934 switch09 "RCU_FlapLeftRearDown";
 CM_ SG_ 934 switch12 "atuador_em_posicao";
-CM_ SG_ 934 switch13 "RCU_FrontRightFlapUp";
-CM_ SG_ 934 switch15 "RCU_FrontLeftFlapDown";
-CM_ SG_ 934 switch18 "RCU_RearRightFlapDown";
+CM_ SG_ 934 switch13 "RCU_FlapRightFrontUp";
+CM_ SG_ 934 switch15 "RCU_FlapLeftFrontDown";
+CM_ SG_ 934 switch18 "RCU_FlapRightRearDown";
 CM_ SG_ 934 switch10 "mesa_em_posicao";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
