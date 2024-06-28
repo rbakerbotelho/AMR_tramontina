@@ -12,10 +12,10 @@ T_out1 = readtable(which('route7.csv')); % Linha Reta 239
 
 % rotas INTERNAS pré-cadastradas
 % T_ind0 = readtable(which('route_teste_aplicacao_fundo.csv'));
-%T_ind0 = readtable(which('MapaTintasInternoTraj_20240626_result.csv'));
+% T_ind0 = readtable(which('MapaTintasInternoTraj_20240626_result.csv'));
 T_ind0 = readtable(which('TrajetoriaTintasInterno_20240626_result.csv'));
 
-T=T_ind0;
+T=T_out0;
 
 %% DEPLOY param
 % Abre o modelo
@@ -24,7 +24,7 @@ T=T_ind0;
 %% Define os parâmetros de DEPLOY
 num_of_wps = size(T, 1);
 tfinal = inf;
-L = 1.0; % look-ahead distance [m]
+L = 1.5; % look-ahead distance [m]
 
 
 %% DEPLOY
